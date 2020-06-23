@@ -38,3 +38,5 @@ async def on_message(message):
 
 
 client.run(TOKEN)
+
+git remote add origin https://github.com/AditMeh/Toronto-Man-Translator.git
