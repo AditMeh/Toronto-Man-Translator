@@ -33,7 +33,6 @@ dealing:unofficially dating
 deezed:fit
 differently:frankly
 dimepiece:attractive female
-eh:
 fam:friend
 fom:friend
 from time:since the dawn of time
@@ -64,7 +63,7 @@ sludem:promiscuous female
 snaked:deceived
 snake:deceiver
 snaking:deceiving
-styll:
+styll:still
 suspect:questionable
 sweetermans:cute and nice male
 szeen:understood
