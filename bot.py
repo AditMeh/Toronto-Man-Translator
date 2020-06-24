@@ -2,10 +2,10 @@ import os
 import pickle
 import discord
 from dotenv import load_dotenv
+from keep_alive import keep_alive
 
 load_dotenv()
 print(load_dotenv())
-TOKEN = os.getenv('DISCORD_TOKEN')
 
 ACTIVATION_COMMAND = os.getenv('ACTIVATION_COMMAND') + " "
 
@@ -45,6 +45,8 @@ async def on_message(message):
         else:
             await message.channel.send("BLACK LIVES MATTER: https://tenor.com/view/black-lives-blackpeople-blacklivesmatter-gif-8493330")
 
+keep_alive()
 
+TOKEN = os.getenv('DISCORD_TOKEN')
 client.run(TOKEN)
 
