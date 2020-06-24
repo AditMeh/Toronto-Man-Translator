@@ -15,6 +15,8 @@ client = discord.Client()
 pickle_in = open("dictionary/dict.pickle", "rb")
 dictionary = pickle.load(pickle_in)
 
+pickle_in = open("dictionary/filter.pickle", "rb")
+filter_words = pickle.load(pickle_in)
 
 @client.event
 async def on_ready():
@@ -24,6 +26,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     query = message.content
+    filter_state = False
     if query[0:len(ACTIVATION_COMMAND)] == ACTIVATION_COMMAND:
         query = query[len(ACTIVATION_COMMAND):]
         for i in dictionary.keys():
@@ -31,10 +34,16 @@ async def on_message(message):
                 query = query.replace(i, dictionary[i])
         query = query.split(" ")
         for i in range(len(query)):
-            if query[i] in dictionary:
+            if query[i] in filter_words:
+                filter_state = True
+                break
+            elif query[i] in dictionary:
                 query[i] = dictionary[query[i]]
         response = " ".join(query)
-        await message.channel.send("Toronto Man -> English: " + response)
+        if not filter_state:
+            await message.channel.send("Toronto Man -> English: " + response)
+        else:
+            await message.channel.send("BLACK LIVES MATTER: https://tenor.com/view/black-lives-blackpeople-blacklivesmatter-gif-8493330")
 
 
 client.run(TOKEN)
